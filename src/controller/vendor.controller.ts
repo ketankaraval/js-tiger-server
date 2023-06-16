@@ -3,6 +3,17 @@ import { BadRequestError, InternalError, NoDataError } from '../utils/apiError';
 import { SuccessResponse } from '../utils/apiResponse';
 import { VendorModel } from '../model/vendor.model';
 
+export const getVendor: catchAsync = async (req, res, next) => {
+    const vendors = await VendorModel.find({}).lean().exec();
+    if (!vendors) {
+        throw next(new BadRequestError('Error while fetching vendors'));
+    }
+    return new SuccessResponse(
+        'Success',
+        vendors.map((vendor) => ({ ...vendor, id: vendor._id.toString() }))
+    ).send(res);
+};
+
 export const createVendor: catchAsync = async (req, res, next) => {
     const vendor = await VendorModel.findOne({ name: req.body.name })
         .lean()

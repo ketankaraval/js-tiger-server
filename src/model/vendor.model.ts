@@ -1,5 +1,5 @@
 import { model, Schema } from 'mongoose';
-import { IVendorModel } from '../types/authInterface';
+import { IVendorModel } from '../types/vendor.type';
 
 const vendorSchema = new Schema(
     {
