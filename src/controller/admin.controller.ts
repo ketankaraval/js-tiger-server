@@ -12,7 +12,6 @@ export const createAdmin: catchAsync = async (req, res, next) => {
     const userData: { email: string; name: string; picture: string } =
         jwt_decode(jwtToken);
     if (!userData) {
-        console.log('here');
         throw next(new AuthFailureError('Invalid user token'));
     }
     const { email, name, picture } = userData;

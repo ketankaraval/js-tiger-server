@@ -2,7 +2,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import router from './routes/v1/routes';
-import { corsUrl, db, environment } from './config';
+import { corsUrl, db } from './config';
 import { ApiError, InternalError, NotFoundError } from './utils/apiError';
 
 mongoose.Promise = global.Promise;
@@ -31,9 +31,7 @@ app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
     if (err instanceof ApiError) {
         ApiError.handle(err, res);
     } else {
-        if (environment === 'development') {
-            console.log(err);
-        }
+        console.log(err);
         ApiError.handle(new InternalError(), res);
     }
 });

@@ -1,5 +1,5 @@
 "use strict";
-var _a;
+var _a, _b;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.JWT_SECRETE_KEY = exports.corsUrl = exports.db = exports.port = exports.environment = void 0;
 const tslib_1 = require("tslib");
@@ -17,4 +17,4 @@ exports.db = {
     googleClientSecret: process.env.GOOGLE_CLIENT_SECRET,
 };
 exports.corsUrl = process.env.CORS_URL;
-exports.JWT_SECRETE_KEY = process.env.JWT_SECRET || '<this is random jwt secrete key>';
+exports.JWT_SECRETE_KEY = (_b = process.env.JWT_SECRET) !== null && _b !== void 0 ? _b : '<this is random jwt secrete key>';

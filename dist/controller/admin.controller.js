@@ -12,7 +12,6 @@ const createAdmin = async (req, res, next) => {
     const { jwtToken } = req.params;
     const userData = (0, jwt_decode_1.default)(jwtToken);
     if (!userData) {
-        console.log('here');
         throw next(new apiError_1.AuthFailureError('Invalid user token'));
     }
     const { email, name, picture } = userData;

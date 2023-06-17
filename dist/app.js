@@ -28,9 +28,7 @@ app.use((err, _req, res, _next) => {
         apiError_1.ApiError.handle(err, res);
     }
     else {
-        if (config_1.environment === 'development') {
-            console.log(err);
-        }
+        console.log(err);
         apiError_1.ApiError.handle(new apiError_1.InternalError(), res);
     }
 });

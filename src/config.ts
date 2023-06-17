@@ -15,4 +15,4 @@ export const db = {
 };
 export const corsUrl = process.env.CORS_URL;
 export const JWT_SECRETE_KEY =
-    process.env.JWT_SECRET || '<this is random jwt secrete key>';
+    process.env.JWT_SECRET ?? '<this is random jwt secrete key>';

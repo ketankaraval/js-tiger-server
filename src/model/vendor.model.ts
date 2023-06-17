@@ -6,7 +6,6 @@ const vendorSchema = new Schema(
         name: {
             type: String,
             required: true,
-            unique: true,
         },
         accountNo: Number,
         bankName: String,
